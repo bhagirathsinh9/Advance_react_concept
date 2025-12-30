@@ -6,9 +6,9 @@ import CounterC from '../componets/CounterC'
 export default function AllCounter() {
   return (
     <div>
-        <CounterA/>
-        <CounterB/>
-        <CounterC/>
+      <CounterA />
+      <CounterB />
+      <CounterC />
     </div>
   )
 }

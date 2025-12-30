@@ -8,13 +8,6 @@ export default function ProductList_NotOptimized({ products }) {
     product.title.toLowerCase().includes(search.toLowerCase())
   );
 
-//   const filteredProducts = useMemo(() => {
-//   return products.filter(p =>
-//     p.title.includes(search)
-//   );
-// }, [products, search]);
-
-
   return (
     <>
       <input

@@ -5,10 +5,7 @@ import MultiStepForm from './componets/MultiStepForm'
 export default function App() {
   return (
     <div>
-      {/* <TempForm/> */}
-      {/* <SignupForm/> */}
-
-      <MultiStepForm/>
+      <MultiStepForm />
     </div>
   )
 }

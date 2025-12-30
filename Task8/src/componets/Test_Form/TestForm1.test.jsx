@@ -19,7 +19,9 @@ describe('TestForm1 Component', () => {
   it('renders input and submit button', () => {
     render(<TestForm1 />)
     expect(screen.getByPlaceholderText('Enter something')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name:  /add item/i })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /add item/i }),
+    ).toBeInTheDocument()
   })
 
   it('allows user to type in the input field', () => {
