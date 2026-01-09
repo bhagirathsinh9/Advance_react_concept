@@ -1,5 +1,5 @@
 import React from 'react'
-import useGetAllUser from '../Hooks/useGetAllUser'
+import useGetAllUser from '../hooks/useGetAllUser'
 
 export default function UserDetails() {
   const users = useGetAllUser()
