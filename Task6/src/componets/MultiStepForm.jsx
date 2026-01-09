@@ -36,9 +36,8 @@ const MultiStepForm = () => {
         setStep(step + 1)
       } else {
         console.log('Final Submit', values)
-
         alert('Form Submitted! check Console...')
-        resetForm() // ✅ clear all fields
+        resetForm()
         setStep(0)
       }
     },
@@ -56,7 +55,6 @@ const MultiStepForm = () => {
         >
           <h3 className='text-center mb-4 font-bold'>Step {step + 1}</h3>
 
-          {/* STEP 1 */}
           {step === 0 && (
             <>
               <div className=' w-full h-full flex justify-between items-center my-2'>
@@ -97,7 +95,6 @@ const MultiStepForm = () => {
             </>
           )}
 
-          {/* STEP 2 */}
           {step === 1 && (
             <>
               <div className=' w-full h-full flex justify-between items-center my-2'>
@@ -138,7 +135,6 @@ const MultiStepForm = () => {
             </>
           )}
 
-          {/* STEP 3 */}
           {step === 2 && (
             <>
               <div className=' w-full h-full flex justify-between items-center my-2'>
@@ -163,7 +159,6 @@ const MultiStepForm = () => {
             </>
           )}
 
-          {/* BUTTONS */}
           <div className='mt-5 flex justify-around items-center my-3'>
             {step > 0 && (
               <button
