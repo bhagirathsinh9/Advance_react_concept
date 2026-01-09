@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom'
 import './App.css'
 import { RouterProvider } from 'react-router'
-import Login from './page/Login'
+import Login from './pages/Login'
 import { lazy, Suspense } from 'react'
 import ProtectedRoute from './navigation/ProtectedRoute'
 
-const Home = lazy(() => import('./page/Home'))
-const Aboutus = lazy(() => import('./page/Aboutus'))
+const Home = lazy(() => import('./pages/Home'))
+const Aboutus = lazy(() => import('./pages/Aboutus'))
 const ProductList = lazy(() => import('./components/ProductList'))
 
 const Loader = () => <h2>Loading...</h2>
