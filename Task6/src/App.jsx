@@ -1,11 +1,13 @@
 import React from 'react'
+import RegisterPage from './pages/RegisterPage'
 
-import MultiStepForm from './componets/MultiStepForm'
+// import MultiStepForm from './componets/MultiStepForm'
 
 export default function App() {
   return (
     <div>
-      <MultiStepForm />
+      {/* <MultiStepForm /> */}
+      <RegisterPage />
     </div>
   )
 }
