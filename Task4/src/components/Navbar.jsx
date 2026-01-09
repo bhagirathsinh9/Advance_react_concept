@@ -46,7 +46,6 @@ export default function Navbar() {
 
         <el-disclosure id='mobile-menu' hidden class='block sm:hidden'>
           <div class='space-y-1 px-2 pt-2 pb-3'>
-            {/* <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" --> */}
             <a
               href='#'
               aria-current='page'
