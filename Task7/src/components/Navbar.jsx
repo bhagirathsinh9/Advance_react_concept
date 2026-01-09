@@ -13,11 +13,11 @@ export default function Navbar() {
   }
 
   return (
-    <header className="w-full shadow-lg bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="w-full shadow-lg bg-white/70 backdrop-blur supports-backdrop-filter:bg-white/60">
       <nav className="mx-auto max-w-7xl px-4 lg:px-8 flex items-center justify-between h-16 relative">
         <Link to="/" className="flex items-center space-x-3">
           <img src={logo} alt="Brand Logo" className="h-10 w-24 object-contain drop-shadow-lg" />
-          <span className="hidden md:block text-xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide">
+          <span className="hidden md:block text-xl font-extrabold bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide">
             B-Store
           </span>
         </Link>
