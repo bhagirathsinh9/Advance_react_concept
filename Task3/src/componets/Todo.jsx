@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addTodo, deleteTodo, editTodo } from './todoSlice'
+import { addTodo, deleteTodo, editTodo } from '../redux/slice/todoSlice'
 import { IoIosAddCircle } from 'react-icons/io'
 import { MdDeleteForever, MdEdit } from 'react-icons/md'
 
@@ -33,7 +33,6 @@ export default function Todo() {
       <div className='text-center my-5 border border-gray-300 shadow-2xl w-md h-full p-3'>
         <h1 className='text-2xl mb-5 font-bold'>Task - 3 Todo</h1>
 
-        {/* INPUT */}
         <div className='border flex justify-between items-center p-3 rounded-2xl'>
           <input
             type='text'
@@ -41,6 +40,11 @@ export default function Todo() {
             value={inputData}
             onChange={(e) => setInputData(e.target.value)}
             className='w-90 p-2 rounded-lg outline-none'
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                submitHandler()
+              }
+            }}
           />
 
           <button onClick={submitHandler} className='mr-1'>
@@ -65,7 +69,6 @@ export default function Todo() {
             >
               <span>{item}</span>
 
-              {/* 🔥 EDIT + DELETE BUTTONS */}
               <div className='flex gap-3'>
                 <button
                   onClick={() => {
