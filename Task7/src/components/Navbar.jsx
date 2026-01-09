@@ -1,64 +1,71 @@
 import React from 'react'
 import logo from '../assets/logo123.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { FaHome, FaListAlt, FaInfoCircle, FaSignOutAlt } from 'react-icons/fa'
+
 export default function Navbar() {
   const token = localStorage.getItem('token')
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    localStorage.clear()
+    navigate('/login')
+  }
+
   return (
-    <div>
-      <nav class='relative bg-gray-800/20 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10 rounded-full'>
-        <div class='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
-          <div class='relative flex h-16 items-center justify-between'>
-            <div class='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
-              <div class='flex shrink-0 items-center'>
-                <img
-                  src={logo}
-                  alt='Your Company'
-                  class='h-10 w-24 object-contain '
-                />
-              </div>
-              <div class='hidden sm:ml-6 sm:block'>
-                <div class='flex space-x-4'>
-                  <Link
-                    to={'/'}
-                    aria-current='page'
-                    class='rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white'
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    to={'/products'}
-                    aria-current='page'
-                    class='rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white'
-                  >
-                    Products
-                  </Link>
-                  <Link
-                    to={'/about'}
-                    aria-current='page'
-                    class='rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white'
-                  >
-                    About US
-                  </Link>
-                  {!token ? null : (
-                    <>
-                      <Link
-                        to={'/login'}
-                        aria-current='page'
-                        onClick={() => {
-                          localStorage.clear()
-                        }}
-                        class='rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white'
-                      >
-                        Logout
-                      </Link>
-                    </>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
+    <header className="w-full shadow-lg bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+      <nav className="mx-auto max-w-7xl px-4 lg:px-8 flex items-center justify-between h-16 relative">
+        <Link to="/" className="flex items-center space-x-3">
+          <img src={logo} alt="Brand Logo" className="h-10 w-24 object-contain drop-shadow-lg" />
+          <span className="hidden md:block text-xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-wide">
+            B-Store
+          </span>
+        </Link>
+        <div className="flex items-center space-x-2">
+          <NavLinks token={token} handleLogout={handleLogout} />
         </div>
       </nav>
-    </div>
+    </header>
+  )
+}
+
+function NavLinks({ token, handleLogout }) {
+  const base =
+    "px-4 py-2 rounded-lg transition font-semibold text-sm flex items-center gap-2"
+  const active =
+    "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow hover:from-purple-500 hover:to-pink-500"
+  const inactive =
+    "text-gray-800 hover:bg-gradient-to-r hover:from-blue-100 hover:to-purple-100 hover:text-blue-700"
+
+  return (
+    <>
+      <Link
+        to="/"
+        className={`${base} ${inactive}`}
+      >
+        <FaHome /> Home
+      </Link>
+      <Link
+        to="/products"
+        className={`${base} ${inactive}`}
+      >
+        <FaListAlt /> Products
+      </Link>
+      <Link
+        to="/about"
+        className={`${base} ${inactive}`}
+      >
+        <FaInfoCircle /> About Us
+      </Link>
+      {token ? (
+        <button
+          onClick={handleLogout}
+          className={`${base} ${active}`}
+        >
+          <FaSignOutAlt />
+          Logout
+        </button>
+      ) : null}
+    </>
   )
 }

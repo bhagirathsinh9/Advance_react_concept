@@ -35,7 +35,7 @@ export default function Login() {
   return (
     <div>
       <Navbar />
-      <div className='my-5'>
+      <div className='my-5 text-center'>
         <h1>Login Here!!</h1>
       </div>
       <div className='w-[30%]  mx-auto p-5 border-2 border-gray-300 rounded-lg shadow-lg'>
@@ -70,8 +70,8 @@ export default function Login() {
         </form>
       </div>
 
-      <div>
-        <h1 className='text-center my-5'>Test Login Credentials</h1>
+      <div className='text-center my-5'>
+        <h1 className='font-bold mb-5'>Test Login Credentials</h1>
         <p>"username": "johnd", "password": "m38rmF$"</p>
       </div>
     </div>
